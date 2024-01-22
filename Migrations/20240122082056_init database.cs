@@ -2,14 +2,11 @@
 
 #nullable disable
 
-namespace Offline_System.Migrations
-{
+namespace Offline_System.Migrations {
     /// <inheritdoc />
-    public partial class initdatabase : Migration
-    {
+    public partial class initdatabase : Migration {
         /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        protected override void Up(MigrationBuilder migrationBuilder) {
             migrationBuilder.CreateTable(
                 name: "employees",
                 columns: table => new
@@ -25,8 +22,7 @@ namespace Offline_System.Migrations
         }
 
         /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        protected override void Down(MigrationBuilder migrationBuilder) {
             migrationBuilder.DropTable(
                 name: "employees");
         }
