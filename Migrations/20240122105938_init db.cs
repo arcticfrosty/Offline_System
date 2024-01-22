@@ -2,20 +2,16 @@
 
 #nullable disable
 
-namespace Offline_System.Migrations
-{
+namespace Offline_System.Migrations {
     /// <inheritdoc />
-    public partial class initdb : Migration
-    {
+    public partial class initdb : Migration {
         /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        protected override void Up(MigrationBuilder migrationBuilder) {
 
         }
 
         /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        protected override void Down(MigrationBuilder migrationBuilder) {
 
         }
     }

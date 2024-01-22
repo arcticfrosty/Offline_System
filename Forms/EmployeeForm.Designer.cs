@@ -31,15 +31,15 @@
             inputField = new GroupBox();
             label4 = new Label();
             textBox2 = new TextBox();
-            txtName = new TextBox();
+            textEmpName = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
+            textEmpId = new TextBox();
             grd_emp = new DataGridView();
             label3 = new Label();
             groupBox1 = new GroupBox();
             editBtn = new Button();
-            delBtn = new Button();
+            deleteBtn = new Button();
             inputField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).BeginInit();
             groupBox1.SuspendLayout();
@@ -59,10 +59,10 @@
             // 
             inputField.Controls.Add(label4);
             inputField.Controls.Add(textBox2);
-            inputField.Controls.Add(txtName);
+            inputField.Controls.Add(textEmpName);
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
-            inputField.Controls.Add(textBox1);
+            inputField.Controls.Add(textEmpId);
             inputField.Location = new Point(12, 57);
             inputField.Name = "inputField";
             inputField.Size = new Size(350, 113);
@@ -87,12 +87,12 @@
             textBox2.Size = new Size(238, 23);
             textBox2.TabIndex = 7;
             // 
-            // txtName
+            // textEmpName
             // 
-            txtName.Location = new Point(106, 51);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(238, 23);
-            txtName.TabIndex = 6;
+            textEmpName.Location = new Point(106, 51);
+            textEmpName.Name = "textEmpName";
+            textEmpName.Size = new Size(238, 23);
+            textEmpName.TabIndex = 6;
             // 
             // label2
             // 
@@ -112,13 +112,13 @@
             label1.TabIndex = 4;
             label1.Text = "Employee ID";
             // 
-            // textBox1
+            // textEmpId
             // 
-            textBox1.Enabled = false;
-            textBox1.Location = new Point(106, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(238, 23);
-            textBox1.TabIndex = 3;
+            textEmpId.Enabled = false;
+            textEmpId.Location = new Point(106, 22);
+            textEmpId.Name = "textEmpId";
+            textEmpId.Size = new Size(238, 23);
+            textEmpId.TabIndex = 3;
             // 
             // grd_emp
             // 
@@ -150,7 +150,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(editBtn);
-            groupBox1.Controls.Add(delBtn);
+            groupBox1.Controls.Add(deleteBtn);
             groupBox1.Controls.Add(SaveBtn);
             groupBox1.Location = new Point(638, 57);
             groupBox1.Name = "groupBox1";
@@ -165,17 +165,19 @@
             editBtn.Name = "editBtn";
             editBtn.Size = new Size(138, 23);
             editBtn.TabIndex = 3;
-            editBtn.Text = "Edit";
+            editBtn.Text = "Update";
             editBtn.UseVisualStyleBackColor = true;
+            editBtn.Click += editBtn_Click;
             // 
-            // delBtn
+            // deleteBtn
             // 
-            delBtn.Location = new Point(6, 79);
-            delBtn.Name = "delBtn";
-            delBtn.Size = new Size(138, 23);
-            delBtn.TabIndex = 2;
-            delBtn.Text = "Delete";
-            delBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Location = new Point(6, 79);
+            deleteBtn.Name = "deleteBtn";
+            deleteBtn.Size = new Size(138, 23);
+            deleteBtn.TabIndex = 2;
+            deleteBtn.Text = "Delete";
+            deleteBtn.UseVisualStyleBackColor = true;
+            deleteBtn.Click += deleteBtn_Click;
             // 
             // EmployeeForm
             // 
@@ -200,16 +202,16 @@
         #endregion
         private Button SaveBtn;
         private GroupBox inputField;
-        private TextBox txtName;
+        private TextBox textEmpName;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textEmpId;
         private DataGridView grd_emp;
         private Label label3;
         private Label label4;
         private TextBox textBox2;
         private GroupBox groupBox1;
         private Button editBtn;
-        private Button delBtn;
+        private Button deleteBtn;
     }
 }
