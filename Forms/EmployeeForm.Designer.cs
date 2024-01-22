@@ -37,15 +37,19 @@
             textBox1 = new TextBox();
             grd_emp = new DataGridView();
             label3 = new Label();
+            groupBox1 = new GroupBox();
+            editBtn = new Button();
+            delBtn = new Button();
             inputField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // SaveBtn
             // 
-            SaveBtn.Location = new Point(306, 22);
+            SaveBtn.Location = new Point(6, 22);
             SaveBtn.Name = "SaveBtn";
-            SaveBtn.Size = new Size(75, 81);
+            SaveBtn.Size = new Size(138, 23);
             SaveBtn.TabIndex = 1;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = true;
@@ -59,10 +63,9 @@
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
             inputField.Controls.Add(textBox1);
-            inputField.Controls.Add(SaveBtn);
             inputField.Location = new Point(12, 57);
             inputField.Name = "inputField";
-            inputField.Size = new Size(387, 113);
+            inputField.Size = new Size(350, 113);
             inputField.TabIndex = 3;
             inputField.TabStop = false;
             inputField.Text = "&Input Field";
@@ -78,16 +81,17 @@
             // 
             // textBox2
             // 
+            textBox2.Enabled = false;
             textBox2.Location = new Point(106, 80);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(194, 23);
+            textBox2.Size = new Size(238, 23);
             textBox2.TabIndex = 7;
             // 
             // txtName
             // 
             txtName.Location = new Point(106, 51);
             txtName.Name = "txtName";
-            txtName.Size = new Size(194, 23);
+            txtName.Size = new Size(238, 23);
             txtName.TabIndex = 6;
             // 
             // label2
@@ -113,14 +117,20 @@
             textBox1.Enabled = false;
             textBox1.Location = new Point(106, 22);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 23);
+            textBox1.Size = new Size(238, 23);
             textBox1.TabIndex = 3;
             // 
             // grd_emp
             // 
+            grd_emp.AllowUserToAddRows = false;
+            grd_emp.AllowUserToDeleteRows = false;
+            grd_emp.AllowUserToResizeColumns = false;
+            grd_emp.AllowUserToResizeRows = false;
+            grd_emp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_emp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grd_emp.Location = new Point(12, 176);
             grd_emp.Name = "grd_emp";
+            grd_emp.RightToLeft = RightToLeft.No;
             grd_emp.RowTemplate.Height = 25;
             grd_emp.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             grd_emp.Size = new Size(776, 262);
@@ -137,11 +147,42 @@
             label3.TabIndex = 5;
             label3.Text = "&Employees Management";
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(editBtn);
+            groupBox1.Controls.Add(delBtn);
+            groupBox1.Controls.Add(SaveBtn);
+            groupBox1.Location = new Point(638, 57);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(150, 113);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "&Actions";
+            // 
+            // editBtn
+            // 
+            editBtn.Location = new Point(6, 51);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new Size(138, 23);
+            editBtn.TabIndex = 3;
+            editBtn.Text = "Edit";
+            editBtn.UseVisualStyleBackColor = true;
+            // 
+            // delBtn
+            // 
+            delBtn.Location = new Point(6, 79);
+            delBtn.Name = "delBtn";
+            delBtn.Size = new Size(138, 23);
+            delBtn.TabIndex = 2;
+            delBtn.Text = "Delete";
+            delBtn.UseVisualStyleBackColor = true;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox1);
             Controls.Add(label3);
             Controls.Add(grd_emp);
             Controls.Add(inputField);
@@ -151,6 +192,7 @@
             inputField.ResumeLayout(false);
             inputField.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -166,5 +208,8 @@
         private Label label3;
         private Label label4;
         private TextBox textBox2;
+        private GroupBox groupBox1;
+        private Button editBtn;
+        private Button delBtn;
     }
 }

@@ -11,8 +11,8 @@ using Offline_System;
 namespace Offline_System.Migrations
 {
     [DbContext(typeof(DemoDbContext))]
-    [Migration("20240122082056_init database")]
-    partial class initdatabase
+    [Migration("20240122105938_init db")]
+    partial class initdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace Offline_System.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeesID"));
 
                     b.Property<string>("EmployeesName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeesPotision")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeesID");

@@ -32,6 +32,9 @@ namespace Offline_System.Migrations
                     b.Property<string>("EmployeesName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EmployeesPotision")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("EmployeesID");
 
                     b.ToTable("employees");
