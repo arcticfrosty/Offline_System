@@ -20,54 +20,6 @@ namespace Offline_System {
             "November",
             "December",
         };
-        private readonly string[] _years =
-        {
-            "1980",
-            "1981",
-            "1982",
-            "1983",
-            "1984",
-            "1985",
-            "1986",
-            "1987",
-            "1988",
-            "1989",
-            "1990",
-            "1991",
-            "1992",
-            "1993",
-            "1994",
-            "1995",
-            "1996",
-            "1997",
-            "1998",
-            "1999",
-            "2000",
-            "2001",
-            "2002",
-            "2003",
-            "2004",
-            "2005",
-            "2006",
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-        };
 
         public EmployeeForm() {
             InitializeComponent();
@@ -84,8 +36,8 @@ namespace Offline_System {
             for (int i = 1; i <= 31; i++) {
                 comboEmpD.Items.Add(i);
             }
-            foreach (string s in _years) {
-                comboEmpY.Items.Add(s);
+            for (int i = 1980; i <= 2024; i++) {
+                comboEmpY.Items.Add(i);
             }
 
             getEmployees();
@@ -93,7 +45,7 @@ namespace Offline_System {
 
         protected void getEmployees() {
             var _context = new OfflineDbContext();
-            var empList = _context.employees.ToList();
+            var empList = _context.ContEmployee.ToList();
             grd_emp.DataSource = empList;
         }
 
@@ -111,7 +63,7 @@ namespace Offline_System {
                             var employee = new Employees() {
                                 EmployeesName = employeeName,
                             };
-                            _context.employees.Add(employee);
+                            _context.ContEmployee.Add(employee);
                             _context.SaveChanges();
 
                             textEmpId.Text = null;
@@ -151,7 +103,7 @@ namespace Offline_System {
                                     EmployeesID = Convert.ToInt32(employeeId),
                                     EmployeesName = employeeName,
                                 };
-                                _context.employees.Update(employee);
+                                _context.ContEmployee.Update(employee);
                                 _context.SaveChanges();
 
                                 textEmpId.Text = null;
@@ -194,7 +146,7 @@ namespace Offline_System {
                             EmployeesID = Convert.ToInt32(employeeId),
                             EmployeesName = employeeName,
                         };
-                        _context.employees.Remove(employee);
+                        _context.ContEmployee.Remove(employee);
                         _context.SaveChanges();
 
                         textEmpId.Text = null;

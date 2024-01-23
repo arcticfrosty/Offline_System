@@ -11,8 +11,8 @@ using Offline_System;
 namespace Offline_System.Migrations
 {
     [DbContext(typeof(OfflineDbContext))]
-    [Migration("20240122150507_init database")]
-    partial class initdatabase
+    [Migration("20240123110130_init db")]
+    partial class initdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,21 +26,21 @@ namespace Offline_System.Migrations
 
             modelBuilder.Entity("Offline_System.Models.Data.Departments", b =>
                 {
-                    b.Property<int>("departId")
+                    b.Property<int>("DepartId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("departId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartId"));
 
-                    b.Property<int>("departActive")
+                    b.Property<int>("DepartActive")
                         .HasColumnType("int");
 
-                    b.Property<string>("departName")
+                    b.Property<string>("DepartName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("departId");
+                    b.HasKey("DepartId");
 
-                    b.ToTable("departments");
+                    b.ToTable("ContDepart");
                 });
 
             modelBuilder.Entity("Offline_System.Models.Data.Employees", b =>
@@ -56,7 +56,23 @@ namespace Offline_System.Migrations
 
                     b.HasKey("EmployeesID");
 
-                    b.ToTable("employees");
+                    b.ToTable("ContEmployee");
+                });
+
+            modelBuilder.Entity("Offline_System.Models.Data.Positions", b =>
+                {
+                    b.Property<int>("PositionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PositionId"));
+
+                    b.Property<string>("PositionName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PositionId");
+
+                    b.ToTable("ContPos");
                 });
 #pragma warning restore 612, 618
         }

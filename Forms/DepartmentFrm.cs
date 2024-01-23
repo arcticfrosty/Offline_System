@@ -14,7 +14,7 @@ namespace Offline_System {
 
         protected void getDepartments() {
             var _context = new OfflineDbContext();
-            var depList = _context.departments.ToList();
+            var depList = _context.ContDepart.ToList();
             grd_dep.DataSource = depList;
         }
 
@@ -72,7 +72,7 @@ namespace Offline_System {
                                     DepartId = Convert.ToInt32(deparmentId),
                                     DepartName = deparmentName,
                                 };
-                                _context.departments.Update(department);
+                                _context.ContDepart.Update(department);
                                 _context.SaveChanges();
 
                                 textDepId.Text = null;
@@ -115,7 +115,7 @@ namespace Offline_System {
                             DepartId = Convert.ToInt32(deparmentId),
                             DepartName = departmentName,
                         };
-                        _context.departments.Remove(deparment);
+                        _context.ContDepart.Remove(deparment);
                         _context.SaveChanges();
 
                         textDepId.Text = null;

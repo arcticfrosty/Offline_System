@@ -28,7 +28,7 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             departmentsToolStripMenuItem1 = new ToolStripMenuItem();
             manageDepartmentsToolStripMenuItem = new ToolStripMenuItem();
-            manageRolesToolStripMenuItem = new ToolStripMenuItem();
+            managePositionsToolStripMenuItem = new ToolStripMenuItem();
             employeesToolStripMenuItem1 = new ToolStripMenuItem();
             manageEmployeesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             // departmentsToolStripMenuItem1
             // 
-            departmentsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { manageDepartmentsToolStripMenuItem, manageRolesToolStripMenuItem });
+            departmentsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { manageDepartmentsToolStripMenuItem, managePositionsToolStripMenuItem });
             departmentsToolStripMenuItem1.Name = "departmentsToolStripMenuItem1";
             departmentsToolStripMenuItem1.Size = new Size(87, 20);
             departmentsToolStripMenuItem1.Text = "Departments";
@@ -72,11 +72,12 @@
             manageDepartmentsToolStripMenuItem.Text = "Manage Departments";
             manageDepartmentsToolStripMenuItem.Click += manageDepartmentsToolStripMenuItem_Click;
             // 
-            // manageRolesToolStripMenuItem
+            // managePositionsToolStripMenuItem
             // 
-            manageRolesToolStripMenuItem.Name = "manageRolesToolStripMenuItem";
-            manageRolesToolStripMenuItem.Size = new Size(188, 22);
-            manageRolesToolStripMenuItem.Text = "Manage Roles";
+            managePositionsToolStripMenuItem.Name = "managePositionsToolStripMenuItem";
+            managePositionsToolStripMenuItem.Size = new Size(188, 22);
+            managePositionsToolStripMenuItem.Text = "Manage Positions";
+            managePositionsToolStripMenuItem.Click += managePositionsToolStripMenuItem_Click;
             // 
             // employeesToolStripMenuItem1
             // 
@@ -88,7 +89,7 @@
             // manageEmployeesToolStripMenuItem
             // 
             manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            manageEmployeesToolStripMenuItem.Size = new Size(177, 22);
+            manageEmployeesToolStripMenuItem.Size = new Size(180, 22);
             manageEmployeesToolStripMenuItem.Text = "Manage Employees";
             manageEmployeesToolStripMenuItem.Click += manageEmployeesToolStripMenuItem_Click;
             // 
@@ -116,7 +117,7 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem departmentsToolStripMenuItem1;
         private ToolStripMenuItem manageDepartmentsToolStripMenuItem;
-        private ToolStripMenuItem manageRolesToolStripMenuItem;
+        private ToolStripMenuItem managePositionsToolStripMenuItem;
         private ToolStripMenuItem employeesToolStripMenuItem1;
         private ToolStripMenuItem manageEmployeesToolStripMenuItem;
     }

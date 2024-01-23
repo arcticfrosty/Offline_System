@@ -38,5 +38,10 @@
             var departfrm = new DepartmentFrm();
             showForm(departfrm);
         }
+
+        private void managePositionsToolStripMenuItem_Click(object sender, EventArgs e) {
+            var positionfrm = new PositionFrm();
+            showForm(positionfrm);
+        }
     }
 }

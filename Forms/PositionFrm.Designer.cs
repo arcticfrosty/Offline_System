@@ -1,5 +1,5 @@
 ﻿namespace Offline_System {
-    partial class DepartmentFrm {
+    partial class PositionFrm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -34,8 +34,6 @@
             label2 = new Label();
             label1 = new Label();
             textDepId = new TextBox();
-            label7 = new Label();
-            checkBox1 = new CheckBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_dep).BeginInit();
             inputField.SuspendLayout();
@@ -47,10 +45,10 @@
             groupBox1.Controls.Add(editDepBtn);
             groupBox1.Controls.Add(deleteDepBtn);
             groupBox1.Controls.Add(SaveDepBtn);
-            groupBox1.Location = new Point(622, 57);
+            groupBox1.Location = new Point(638, 57);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(150, 113);
-            groupBox1.TabIndex = 10;
+            groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "&Actions";
             // 
@@ -62,7 +60,6 @@
             editDepBtn.TabIndex = 3;
             editDepBtn.Text = "Update";
             editDepBtn.UseVisualStyleBackColor = true;
-            editDepBtn.Click += editDepBtn_Click;
             // 
             // deleteDepBtn
             // 
@@ -72,7 +69,6 @@
             deleteDepBtn.TabIndex = 2;
             deleteDepBtn.Text = "Delete";
             deleteDepBtn.UseVisualStyleBackColor = true;
-            deleteDepBtn.Click += deleteDepBtn_Click;
             // 
             // SaveDepBtn
             // 
@@ -82,7 +78,6 @@
             SaveDepBtn.TabIndex = 1;
             SaveDepBtn.Text = "Save";
             SaveDepBtn.UseVisualStyleBackColor = true;
-            SaveDepBtn.Click += SaveDepBtn_Click;
             // 
             // label3
             // 
@@ -90,9 +85,9 @@
             label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(12, 9);
             label3.Name = "label3";
-            label3.Size = new Size(422, 45);
-            label3.TabIndex = 9;
-            label3.Text = "&Departments Management";
+            label3.Size = new Size(363, 45);
+            label3.TabIndex = 13;
+            label3.Text = "&Positions Management";
             // 
             // grd_dep
             // 
@@ -110,14 +105,11 @@
             grd_dep.RowHeadersVisible = false;
             grd_dep.RowTemplate.Height = 25;
             grd_dep.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grd_dep.Size = new Size(760, 375);
-            grd_dep.TabIndex = 8;
-            grd_dep.CellDoubleClick += grd_dep_CellDoubleClick;
+            grd_dep.Size = new Size(776, 262);
+            grd_dep.TabIndex = 12;
             // 
             // inputField
             // 
-            inputField.Controls.Add(label7);
-            inputField.Controls.Add(checkBox1);
             inputField.Controls.Add(textDepName);
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
@@ -125,9 +117,9 @@
             inputField.Location = new Point(12, 57);
             inputField.Name = "inputField";
             inputField.Size = new Size(358, 113);
-            inputField.TabIndex = 7;
+            inputField.TabIndex = 11;
             inputField.TabStop = false;
-            inputField.Text = "&Department Info";
+            inputField.Text = "&Position Info";
             // 
             // textDepName
             // 
@@ -141,18 +133,18 @@
             label2.AutoSize = true;
             label2.Location = new Point(6, 54);
             label2.Name = "label2";
-            label2.Size = new Size(101, 15);
+            label2.Size = new Size(85, 15);
             label2.TabIndex = 5;
-            label2.Text = "Deparment Name";
+            label2.Text = "Position Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Location = new Point(6, 25);
             label1.Name = "label1";
-            label1.Size = new Size(80, 15);
+            label1.Size = new Size(64, 15);
             label1.TabIndex = 4;
-            label1.Text = "Deparment ID";
+            label1.Text = "Position ID";
             // 
             // textDepId
             // 
@@ -162,40 +154,17 @@
             textDepId.Size = new Size(238, 23);
             textDepId.TabIndex = 3;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 83);
-            label7.Name = "label7";
-            label7.Size = new Size(39, 15);
-            label7.TabIndex = 15;
-            label7.Text = "Status";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Location = new Point(113, 82);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.No;
-            checkBox1.Size = new Size(59, 19);
-            checkBox1.TabIndex = 14;
-            checkBox1.Text = "Active";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // DepartmentFrm
+            // PositionFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(800, 450);
             Controls.Add(groupBox1);
             Controls.Add(label3);
             Controls.Add(grd_dep);
             Controls.Add(inputField);
-            Name = "DepartmentFrm";
-            Text = "Departments Management";
-            Load += DepartmentFrm_Load;
+            Name = "PositionFrm";
+            Text = "Positions Management";
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)grd_dep).EndInit();
             inputField.ResumeLayout(false);
@@ -217,7 +186,5 @@
         private Label label2;
         private Label label1;
         private TextBox textDepId;
-        private Label label7;
-        private CheckBox checkBox1;
     }
 }

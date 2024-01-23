@@ -347,9 +347,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(6, 82);
             label7.Name = "label7";
-            label7.Size = new Size(51, 15);
+            label7.Size = new Size(39, 15);
             label7.TabIndex = 13;
-            label7.Text = "Is Active";
+            label7.Text = "Status";
             // 
             // checkBox1
             // 

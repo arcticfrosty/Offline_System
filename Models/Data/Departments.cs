@@ -2,9 +2,8 @@
 
 namespace Offline_System.Models.Data {
     public class Departments {
-        [Key]
-        public int DepartId { get; set; }
+        [Key] public int DepartId { get; set; }
         public string DepartName { get; set; }
-        public int DepartActive { get; set; }
+        public int DepartStatus { get; set; }
     }
 }
