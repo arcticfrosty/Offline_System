@@ -23,22 +23,24 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            manageToolStripMenuItem = new ToolStripMenuItem();
-            employeesToolStripMenuItem = new ToolStripMenuItem();
+            departmentsToolStripMenuItem1 = new ToolStripMenuItem();
+            manageDepartmentsToolStripMenuItem = new ToolStripMenuItem();
+            manageRolesToolStripMenuItem = new ToolStripMenuItem();
+            employeesToolStripMenuItem1 = new ToolStripMenuItem();
+            manageEmployeesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.BackColor = SystemColors.ControlLight;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, manageToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, departmentsToolStripMenuItem1, employeesToolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(784, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -56,31 +58,51 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // manageToolStripMenuItem
+            // departmentsToolStripMenuItem1
             // 
-            manageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { employeesToolStripMenuItem });
-            manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-            manageToolStripMenuItem.Size = new Size(62, 20);
-            manageToolStripMenuItem.Text = "Manage";
+            departmentsToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { manageDepartmentsToolStripMenuItem, manageRolesToolStripMenuItem });
+            departmentsToolStripMenuItem1.Name = "departmentsToolStripMenuItem1";
+            departmentsToolStripMenuItem1.Size = new Size(87, 20);
+            departmentsToolStripMenuItem1.Text = "Departments";
             // 
-            // employeesToolStripMenuItem
+            // manageDepartmentsToolStripMenuItem
             // 
-            employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            employeesToolStripMenuItem.Size = new Size(180, 22);
-            employeesToolStripMenuItem.Text = "Employees";
-            employeesToolStripMenuItem.Click += employeesToolStripMenuItem_Click;
+            manageDepartmentsToolStripMenuItem.Name = "manageDepartmentsToolStripMenuItem";
+            manageDepartmentsToolStripMenuItem.Size = new Size(188, 22);
+            manageDepartmentsToolStripMenuItem.Text = "Manage Departments";
+            manageDepartmentsToolStripMenuItem.Click += manageDepartmentsToolStripMenuItem_Click;
+            // 
+            // manageRolesToolStripMenuItem
+            // 
+            manageRolesToolStripMenuItem.Name = "manageRolesToolStripMenuItem";
+            manageRolesToolStripMenuItem.Size = new Size(188, 22);
+            manageRolesToolStripMenuItem.Text = "Manage Roles";
+            // 
+            // employeesToolStripMenuItem1
+            // 
+            employeesToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { manageEmployeesToolStripMenuItem });
+            employeesToolStripMenuItem1.Name = "employeesToolStripMenuItem1";
+            employeesToolStripMenuItem1.Size = new Size(76, 20);
+            employeesToolStripMenuItem1.Text = "Employees";
+            // 
+            // manageEmployeesToolStripMenuItem
+            // 
+            manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
+            manageEmployeesToolStripMenuItem.Size = new Size(177, 22);
+            manageEmployeesToolStripMenuItem.Text = "Manage Employees";
+            manageEmployeesToolStripMenuItem.Click += manageEmployeesToolStripMenuItem_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 561);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "OFFLINE SYSTEM";
+            FormClosing += MainForm_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -91,8 +113,11 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem manageToolStripMenuItem;
-        private ToolStripMenuItem employeesToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem departmentsToolStripMenuItem1;
+        private ToolStripMenuItem manageDepartmentsToolStripMenuItem;
+        private ToolStripMenuItem manageRolesToolStripMenuItem;
+        private ToolStripMenuItem employeesToolStripMenuItem1;
+        private ToolStripMenuItem manageEmployeesToolStripMenuItem;
     }
 }

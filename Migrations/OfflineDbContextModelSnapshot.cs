@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Offline_System;
 
@@ -10,12 +9,10 @@ using Offline_System;
 
 namespace Offline_System.Migrations
 {
-    [DbContext(typeof(DemoDbContext))]
-    [Migration("20240122105938_init db")]
-    partial class initdb
+    [DbContext(typeof(OfflineDbContext))]
+    partial class OfflineDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,6 +20,25 @@ namespace Offline_System.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Offline_System.Models.Data.Departments", b =>
+                {
+                    b.Property<int>("departId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("departId"));
+
+                    b.Property<int>("departActive")
+                        .HasColumnType("int");
+
+                    b.Property<string>("departName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("departId");
+
+                    b.ToTable("departments");
+                });
 
             modelBuilder.Entity("Offline_System.Models.Data.Employees", b =>
                 {
@@ -33,9 +49,6 @@ namespace Offline_System.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeesID"));
 
                     b.Property<string>("EmployeesName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeesPotision")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeesID");
