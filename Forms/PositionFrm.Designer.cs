@@ -30,6 +30,10 @@
             label3 = new Label();
             grd_dep = new DataGridView();
             inputField = new GroupBox();
+            label5 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
+            comboPosDep = new ComboBox();
             textDepName = new TextBox();
             label2 = new Label();
             label1 = new Label();
@@ -45,9 +49,10 @@
             groupBox1.Controls.Add(editDepBtn);
             groupBox1.Controls.Add(deleteDepBtn);
             groupBox1.Controls.Add(SaveDepBtn);
-            groupBox1.Location = new Point(638, 57);
+            groupBox1.Location = new Point(622, 57);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(150, 113);
+            groupBox1.RightToLeft = RightToLeft.Yes;
+            groupBox1.Size = new Size(150, 139);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "&Actions";
@@ -98,34 +103,73 @@
             grd_dep.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd_dep.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_dep.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd_dep.Location = new Point(12, 176);
+            grd_dep.Location = new Point(12, 202);
             grd_dep.Name = "grd_dep";
             grd_dep.ReadOnly = true;
             grd_dep.RightToLeft = RightToLeft.No;
             grd_dep.RowHeadersVisible = false;
             grd_dep.RowTemplate.Height = 25;
             grd_dep.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grd_dep.Size = new Size(776, 262);
+            grd_dep.Size = new Size(760, 347);
             grd_dep.TabIndex = 12;
             // 
             // inputField
             // 
+            inputField.Controls.Add(label5);
+            inputField.Controls.Add(textBox1);
+            inputField.Controls.Add(label4);
+            inputField.Controls.Add(comboPosDep);
             inputField.Controls.Add(textDepName);
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
             inputField.Controls.Add(textDepId);
             inputField.Location = new Point(12, 57);
             inputField.Name = "inputField";
-            inputField.Size = new Size(358, 113);
+            inputField.Size = new Size(358, 139);
             inputField.TabIndex = 11;
             inputField.TabStop = false;
             inputField.Text = "&Position Info";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(84, 15);
+            label5.TabIndex = 18;
+            label5.Text = "Department ID";
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(117, 79);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(235, 23);
+            textBox1.TabIndex = 17;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 111);
+            label4.Name = "label4";
+            label4.Size = new Size(105, 15);
+            label4.TabIndex = 16;
+            label4.Text = "Department Name";
+            // 
+            // comboPosDep
+            // 
+            comboPosDep.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboPosDep.FormattingEnabled = true;
+            comboPosDep.Location = new Point(117, 108);
+            comboPosDep.Name = "comboPosDep";
+            comboPosDep.Size = new Size(235, 23);
+            comboPosDep.TabIndex = 15;
+            // 
             // textDepName
             // 
-            textDepName.Location = new Point(113, 51);
+            textDepName.Location = new Point(117, 50);
             textDepName.Name = "textDepName";
-            textDepName.Size = new Size(238, 23);
+            textDepName.Size = new Size(235, 23);
             textDepName.TabIndex = 6;
             // 
             // label2
@@ -149,16 +193,16 @@
             // textDepId
             // 
             textDepId.Enabled = false;
-            textDepId.Location = new Point(113, 22);
+            textDepId.Location = new Point(117, 22);
             textDepId.Name = "textDepId";
-            textDepId.Size = new Size(238, 23);
+            textDepId.Size = new Size(235, 23);
             textDepId.TabIndex = 3;
             // 
             // PositionFrm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(784, 561);
             Controls.Add(groupBox1);
             Controls.Add(label3);
             Controls.Add(grd_dep);
@@ -186,5 +230,9 @@
         private Label label2;
         private Label label1;
         private TextBox textDepId;
+        private Label label4;
+        private ComboBox comboPosDep;
+        private Label label5;
+        private TextBox textBox1;
     }
 }

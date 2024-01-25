@@ -26,9 +26,8 @@ namespace Offline_System {
         }
 
         private void MainForm_Load(object sender, EventArgs e) {
-            textEmpDateM.Text = DateTime.Now.ToString("MMMM");
-            textEmpDateD.Text = DateTime.Now.ToString("dd");
-            textEmpDateY.Text = DateTime.Now.ToString("yyyy");
+            int _startYear = 1980;
+            int _endYear = DateTime.Now.Year;
 
             foreach (string s in _months) {
                 comboEmpM.Items.Add(s);
@@ -36,7 +35,7 @@ namespace Offline_System {
             for (int i = 1; i <= 31; i++) {
                 comboEmpD.Items.Add(i);
             }
-            for (int i = 1980; i <= 2024; i++) {
+            for (int i = _startYear; i <= _endYear; i++) {
                 comboEmpY.Items.Add(i);
             }
 
@@ -47,6 +46,29 @@ namespace Offline_System {
             var _context = new OfflineDbContext();
             var empList = _context.ContEmployee.ToList();
             grd_emp.DataSource = empList;
+        }
+
+        protected string getGender() {
+            if (rbMale.Checked == true) {
+                return "Male";
+            } else if (rbFemale.Checked == true) {
+                return "Female";
+            } else {
+                return "Undefined";
+            }
+        }
+
+        protected DateTime getBirthday() {
+            var _dob = comboEmpM.Text + "/" + comboEmpD.Text + "/" + comboEmpY.Text;
+            DateTime _dobInput = DateTime.ParseExact(_dob, "MMMM/dd/yyyy", null);
+            return _dobInput;
+        }
+
+        protected bool getStatus() {
+            if (empStatus.Checked == true) {
+                return true;
+            }
+            return false;
         }
 
         private void SaveBtn_Click(object sender, EventArgs e) {
@@ -62,6 +84,11 @@ namespace Offline_System {
                         if (Regex.IsMatch(employeeName, @"^[a-zA-Z\s]+$")) {
                             var employee = new Employees() {
                                 EmployeesName = employeeName,
+                                EmployeeGender = getGender(),
+                                EmployeeAge = Convert.ToInt32(textEmpAge),
+                                EmployeeDoB = getBirthday(),
+                                EmployeePosition = empPos.Text,
+                                EmployeeDeparment = empDepart.Text,
                             };
                             _context.ContEmployee.Add(employee);
                             _context.SaveChanges();
@@ -102,6 +129,8 @@ namespace Offline_System {
                                 var employee = new Employees() {
                                     EmployeesID = Convert.ToInt32(employeeId),
                                     EmployeesName = employeeName,
+                                    EmployeeGender = getGender(),
+                                    EmployeeAge = Convert.ToInt32(textEmpAge),
                                 };
                                 _context.ContEmployee.Update(employee);
                                 _context.SaveChanges();
@@ -145,6 +174,8 @@ namespace Offline_System {
                         var employee = new Employees() {
                             EmployeesID = Convert.ToInt32(employeeId),
                             EmployeesName = employeeName,
+                            EmployeeGender = getGender(),
+                            EmployeeAge = Convert.ToInt32(textEmpAge),
                         };
                         _context.ContEmployee.Remove(employee);
                         _context.SaveChanges();
@@ -160,7 +191,7 @@ namespace Offline_System {
                     } else {
                         MessageBox.Show("Name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                } catch (Exception) {
+                } catch {
                     MessageBox.Show("Not found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -172,10 +203,6 @@ namespace Offline_System {
                 textEmpName.Text = grd_emp.SelectedCells[1].Value.ToString();
             } catch {
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
         }
     }
 }

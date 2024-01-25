@@ -89,7 +89,7 @@
             // manageEmployeesToolStripMenuItem
             // 
             manageEmployeesToolStripMenuItem.Name = "manageEmployeesToolStripMenuItem";
-            manageEmployeesToolStripMenuItem.Size = new Size(180, 22);
+            manageEmployeesToolStripMenuItem.Size = new Size(177, 22);
             manageEmployeesToolStripMenuItem.Text = "Manage Employees";
             manageEmployeesToolStripMenuItem.Click += manageEmployeesToolStripMenuItem_Click;
             // 
@@ -100,9 +100,11 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(784, 561);
             Controls.Add(menuStrip1);
+            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             Text = "OFFLINE SYSTEM";
+            WindowState = FormWindowState.Maximized;
             FormClosing += MainForm_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

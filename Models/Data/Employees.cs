@@ -6,9 +6,9 @@ namespace Offline_System.Models.Data {
         public string EmployeesName { get; set; }
         public string EmployeeGender { get; set; }
         public int EmployeeAge { get; set; }
-        public string EmployeeDeparment { get; set; }
+        public DateTime EmployeeDoB { get; set; }
         public string EmployeePosition { get; set; }
-        public string EmployeeStatus { get; set; }
-        public string EmployeeDate { get; set; }
+        public string EmployeeDeparment { get; set; }
+        public bool EmployeeStatus { get; set; }
     }
 }

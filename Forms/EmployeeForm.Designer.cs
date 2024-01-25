@@ -29,23 +29,21 @@
         private void InitializeComponent() {
             SaveBtn = new Button();
             inputField = new GroupBox();
+            label9 = new Label();
+            textEmpAge = new TextBox();
             comboEmpY = new ComboBox();
             comboEmpD = new ComboBox();
             comboEmpM = new ComboBox();
-            textEmpDateY = new TextBox();
-            textEmpDateD = new TextBox();
-            label9 = new Label();
-            textEmpDateM = new TextBox();
             label8 = new Label();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
+            rbUndef = new RadioButton();
+            rbFemale = new RadioButton();
+            rbMale = new RadioButton();
             label5 = new Label();
             textEmpName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             textEmpId = new TextBox();
-            comboBox2 = new ComboBox();
+            empDepart = new ComboBox();
             label4 = new Label();
             grd_emp = new DataGridView();
             label3 = new Label();
@@ -54,8 +52,8 @@
             deleteBtn = new Button();
             groupBox2 = new GroupBox();
             label7 = new Label();
-            checkBox1 = new CheckBox();
-            comboBox1 = new ComboBox();
+            empStatus = new CheckBox();
+            empPos = new ComboBox();
             label6 = new Label();
             inputField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).BeginInit();
@@ -75,17 +73,15 @@
             // 
             // inputField
             // 
+            inputField.Controls.Add(label9);
+            inputField.Controls.Add(textEmpAge);
             inputField.Controls.Add(comboEmpY);
             inputField.Controls.Add(comboEmpD);
             inputField.Controls.Add(comboEmpM);
-            inputField.Controls.Add(textEmpDateY);
-            inputField.Controls.Add(textEmpDateD);
-            inputField.Controls.Add(label9);
-            inputField.Controls.Add(textEmpDateM);
             inputField.Controls.Add(label8);
-            inputField.Controls.Add(radioButton3);
-            inputField.Controls.Add(radioButton2);
-            inputField.Controls.Add(radioButton1);
+            inputField.Controls.Add(rbUndef);
+            inputField.Controls.Add(rbFemale);
+            inputField.Controls.Add(rbMale);
             inputField.Controls.Add(label5);
             inputField.Controls.Add(textEmpName);
             inputField.Controls.Add(label2);
@@ -97,6 +93,22 @@
             inputField.TabIndex = 3;
             inputField.TabStop = false;
             inputField.Text = "&Employee Info";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(6, 108);
+            label9.Name = "label9";
+            label9.Size = new Size(28, 15);
+            label9.TabIndex = 26;
+            label9.Text = "Age";
+            // 
+            // textEmpAge
+            // 
+            textEmpAge.Location = new Point(106, 105);
+            textEmpAge.Name = "textEmpAge";
+            textEmpAge.Size = new Size(51, 23);
+            textEmpAge.TabIndex = 25;
             // 
             // comboEmpY
             // 
@@ -125,42 +137,6 @@
             comboEmpM.Size = new Size(90, 23);
             comboEmpM.TabIndex = 22;
             // 
-            // textEmpDateY
-            // 
-            textEmpDateY.Enabled = false;
-            textEmpDateY.Location = new Point(264, 105);
-            textEmpDateY.Name = "textEmpDateY";
-            textEmpDateY.Size = new Size(90, 23);
-            textEmpDateY.TabIndex = 18;
-            textEmpDateY.TextAlign = HorizontalAlignment.Right;
-            // 
-            // textEmpDateD
-            // 
-            textEmpDateD.Enabled = false;
-            textEmpDateD.Location = new Point(202, 105);
-            textEmpDateD.Name = "textEmpDateD";
-            textEmpDateD.Size = new Size(56, 23);
-            textEmpDateD.TabIndex = 17;
-            textEmpDateD.TextAlign = HorizontalAlignment.Right;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(6, 108);
-            label9.Name = "label9";
-            label9.Size = new Size(31, 15);
-            label9.TabIndex = 15;
-            label9.Text = "Date";
-            // 
-            // textEmpDateM
-            // 
-            textEmpDateM.Enabled = false;
-            textEmpDateM.Location = new Point(106, 105);
-            textEmpDateM.Name = "textEmpDateM";
-            textEmpDateM.Size = new Size(90, 23);
-            textEmpDateM.TabIndex = 14;
-            textEmpDateM.TextAlign = HorizontalAlignment.Right;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -170,37 +146,37 @@
             label8.TabIndex = 13;
             label8.Text = "Date of birth";
             // 
-            // radioButton3
+            // rbUndef
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Checked = true;
-            radioButton3.Location = new Point(232, 80);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(80, 19);
-            radioButton3.TabIndex = 12;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Undefined";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbUndef.AutoSize = true;
+            rbUndef.Checked = true;
+            rbUndef.Location = new Point(232, 80);
+            rbUndef.Name = "rbUndef";
+            rbUndef.Size = new Size(80, 19);
+            rbUndef.TabIndex = 12;
+            rbUndef.TabStop = true;
+            rbUndef.Text = "Undefined";
+            rbUndef.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbFemale
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(163, 80);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(63, 19);
-            radioButton2.TabIndex = 11;
-            radioButton2.Text = "Female";
-            radioButton2.UseVisualStyleBackColor = true;
+            rbFemale.AutoSize = true;
+            rbFemale.Location = new Point(163, 80);
+            rbFemale.Name = "rbFemale";
+            rbFemale.Size = new Size(63, 19);
+            rbFemale.TabIndex = 11;
+            rbFemale.Text = "Female";
+            rbFemale.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbMale
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(106, 80);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(51, 19);
-            radioButton1.TabIndex = 10;
-            radioButton1.Text = "Male";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbMale.AutoSize = true;
+            rbMale.Location = new Point(106, 80);
+            rbMale.Name = "rbMale";
+            rbMale.Size = new Size(51, 19);
+            rbMale.TabIndex = 10;
+            rbMale.Text = "Male";
+            rbMale.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -244,14 +220,14 @@
             textEmpId.Size = new Size(248, 23);
             textEmpId.TabIndex = 3;
             // 
-            // comboBox2
+            // empDepart
             // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(106, 22);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(248, 23);
-            comboBox2.TabIndex = 9;
+            empDepart.DropDownStyle = ComboBoxStyle.DropDownList;
+            empDepart.FormattingEnabled = true;
+            empDepart.Location = new Point(106, 22);
+            empDepart.Name = "empDepart";
+            empDepart.Size = new Size(248, 23);
+            empDepart.TabIndex = 9;
             // 
             // label4
             // 
@@ -330,11 +306,11 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label7);
-            groupBox2.Controls.Add(checkBox1);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(empStatus);
+            groupBox2.Controls.Add(empPos);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(comboBox2);
+            groupBox2.Controls.Add(empDepart);
             groupBox2.Location = new Point(378, 57);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(360, 166);
@@ -351,27 +327,27 @@
             label7.TabIndex = 13;
             label7.Text = "Status";
             // 
-            // checkBox1
+            // empStatus
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Location = new Point(106, 81);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.No;
-            checkBox1.Size = new Size(59, 19);
-            checkBox1.TabIndex = 12;
-            checkBox1.Text = "Active";
-            checkBox1.UseVisualStyleBackColor = true;
+            empStatus.AutoSize = true;
+            empStatus.Checked = true;
+            empStatus.CheckState = CheckState.Checked;
+            empStatus.Location = new Point(106, 81);
+            empStatus.Name = "empStatus";
+            empStatus.RightToLeft = RightToLeft.No;
+            empStatus.Size = new Size(59, 19);
+            empStatus.TabIndex = 12;
+            empStatus.Text = "Active";
+            empStatus.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // empPos
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(106, 51);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(248, 23);
-            comboBox1.TabIndex = 11;
+            empPos.DropDownStyle = ComboBoxStyle.DropDownList;
+            empPos.FormattingEnabled = true;
+            empPos.Location = new Point(106, 51);
+            empPos.Name = "empPos";
+            empPos.Size = new Size(248, 23);
+            empPos.TabIndex = 11;
             // 
             // label6
             // 
@@ -419,23 +395,21 @@
         private GroupBox groupBox1;
         private Button editBtn;
         private Button deleteBtn;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private ComboBox comboBox2;
+        private RadioButton rbFemale;
+        private RadioButton rbMale;
+        private ComboBox empDepart;
         private Label label5;
-        private RadioButton radioButton3;
+        private RadioButton rbUndef;
         private GroupBox groupBox2;
-        private ComboBox comboBox1;
+        private ComboBox empPos;
         private Label label6;
         private Label label7;
-        private CheckBox checkBox1;
-        private Label label9;
-        private TextBox textEmpDateM;
+        private CheckBox empStatus;
         private Label label8;
-        private TextBox textEmpDateY;
-        private TextBox textEmpDateD;
         private ComboBox comboEmpY;
         private ComboBox comboEmpD;
         private ComboBox comboEmpM;
+        private Label label9;
+        private TextBox textEmpAge;
     }
 }

@@ -30,12 +30,12 @@
             label3 = new Label();
             grd_dep = new DataGridView();
             inputField = new GroupBox();
+            label7 = new Label();
+            checkBox1 = new CheckBox();
             textDepName = new TextBox();
             label2 = new Label();
             label1 = new Label();
             textDepId = new TextBox();
-            label7 = new Label();
-            checkBox1 = new CheckBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_dep).BeginInit();
             inputField.SuspendLayout();
@@ -49,6 +49,7 @@
             groupBox1.Controls.Add(SaveDepBtn);
             groupBox1.Location = new Point(622, 57);
             groupBox1.Name = "groupBox1";
+            groupBox1.RightToLeft = RightToLeft.Yes;
             groupBox1.Size = new Size(150, 113);
             groupBox1.TabIndex = 10;
             groupBox1.TabStop = false;
@@ -129,6 +130,28 @@
             inputField.TabStop = false;
             inputField.Text = "&Department Info";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 83);
+            label7.Name = "label7";
+            label7.Size = new Size(39, 15);
+            label7.TabIndex = 15;
+            label7.Text = "Status";
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Checked = true;
+            checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Location = new Point(113, 82);
+            checkBox1.Name = "checkBox1";
+            checkBox1.RightToLeft = RightToLeft.No;
+            checkBox1.Size = new Size(59, 19);
+            checkBox1.TabIndex = 14;
+            checkBox1.Text = "Active";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // textDepName
             // 
             textDepName.Location = new Point(113, 51);
@@ -161,28 +184,6 @@
             textDepId.Name = "textDepId";
             textDepId.Size = new Size(238, 23);
             textDepId.TabIndex = 3;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 83);
-            label7.Name = "label7";
-            label7.Size = new Size(39, 15);
-            label7.TabIndex = 15;
-            label7.Text = "Status";
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Location = new Point(113, 82);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.No;
-            checkBox1.Size = new Size(59, 19);
-            checkBox1.TabIndex = 14;
-            checkBox1.Text = "Active";
-            checkBox1.UseVisualStyleBackColor = true;
             // 
             // DepartmentFrm
             // 
