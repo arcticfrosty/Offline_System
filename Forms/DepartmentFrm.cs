@@ -10,11 +10,17 @@ namespace Offline_System {
 
         private void DepartmentFrm_Load(object sender, EventArgs e) {
             getDepartments();
+            grd_dep.Columns[0].HeaderText = "ID";
+            grd_dep.Columns[1].HeaderText = "Department Name";
+            grd_dep.Columns[2].HeaderText = "Status";
+            foreach (DataGridViewColumn columns in grd_dep.Columns) {
+                columns.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
         }
 
         protected void getDepartments() {
             var _context = new OfflineDbContext();
-            var depList = _context.ContDepart.ToList();
+            var depList = _context.C_Departments.ToList();
             grd_dep.DataSource = depList;
         }
 
@@ -31,12 +37,14 @@ namespace Offline_System {
                         if (Regex.IsMatch(deparmentName, @"^[a-zA-Z\s]+$")) {
                             var deparment = new Departments() {
                                 DepartName = deparmentName,
+                                DepartStatus = depStatus.Checked,
                             };
                             _context.Add(deparment);
                             _context.SaveChanges();
 
                             textDepId.Text = null;
                             textDepName.Text = null;
+                            depStatus.Checked = true;
 
                             getDepartments();
 
@@ -50,7 +58,7 @@ namespace Offline_System {
                         MessageBox.Show("Department name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 } catch (Exception ex) {
-                    MessageBox.Show("An Error Occurred! " + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -69,14 +77,16 @@ namespace Offline_System {
                         if (!string.IsNullOrEmpty(deparmentId)) {
                             if (Regex.IsMatch(deparmentName, @"^[a-zA-Z\s]+$")) {
                                 var department = new Departments() {
-                                    DepartId = Convert.ToInt32(deparmentId),
+                                    DepartID = Convert.ToInt32(deparmentId),
                                     DepartName = deparmentName,
+                                    DepartStatus = depStatus.Checked,
                                 };
-                                _context.ContDepart.Update(department);
+                                _context.C_Departments.Update(department);
                                 _context.SaveChanges();
 
                                 textDepId.Text = null;
                                 textDepName.Text = null;
+                                depStatus.Checked = true;
 
                                 getDepartments();
 
@@ -93,7 +103,7 @@ namespace Offline_System {
                         MessageBox.Show("Please select one from field below!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 } catch (Exception ex) {
-                    MessageBox.Show("An Error Occurred! " + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -112,14 +122,16 @@ namespace Offline_System {
 
                     if (!string.IsNullOrEmpty(departmentName)) {
                         var deparment = new Departments() {
-                            DepartId = Convert.ToInt32(deparmentId),
+                            DepartID = Convert.ToInt32(deparmentId),
                             DepartName = departmentName,
+                            DepartStatus = depStatus.Checked,
                         };
-                        _context.ContDepart.Remove(deparment);
+                        _context.C_Departments.Remove(deparment);
                         _context.SaveChanges();
 
                         textDepId.Text = null;
                         textDepName.Text = null;
+                        depStatus.Checked = true;
 
                         getDepartments();
 
@@ -139,6 +151,12 @@ namespace Offline_System {
             try {
                 textDepId.Text = grd_dep.SelectedCells[0].Value.ToString();
                 textDepName.Text = grd_dep.SelectedCells[1].Value.ToString();
+                bool isActive = (bool)grd_dep.SelectedCells[2].Value;
+                if (isActive) {
+                    depStatus.Checked = true;
+                } else {
+                    depStatus.Checked = false;
+                }
             } catch {
             }
         }

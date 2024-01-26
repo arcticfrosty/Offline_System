@@ -29,11 +29,9 @@
         private void InitializeComponent() {
             SaveBtn = new Button();
             inputField = new GroupBox();
+            textEmpDob = new DateTimePicker();
             label9 = new Label();
             textEmpAge = new TextBox();
-            comboEmpY = new ComboBox();
-            comboEmpD = new ComboBox();
-            comboEmpM = new ComboBox();
             label8 = new Label();
             rbUndef = new RadioButton();
             rbFemale = new RadioButton();
@@ -48,6 +46,7 @@
             grd_emp = new DataGridView();
             label3 = new Label();
             groupBox1 = new GroupBox();
+            clearBtn = new Button();
             editBtn = new Button();
             deleteBtn = new Button();
             groupBox2 = new GroupBox();
@@ -55,10 +54,12 @@
             empStatus = new CheckBox();
             empPos = new ComboBox();
             label6 = new Label();
+            grd_dep_list = new DataGridView();
             inputField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)grd_dep_list).BeginInit();
             SuspendLayout();
             // 
             // SaveBtn
@@ -73,11 +74,9 @@
             // 
             // inputField
             // 
+            inputField.Controls.Add(textEmpDob);
             inputField.Controls.Add(label9);
             inputField.Controls.Add(textEmpAge);
-            inputField.Controls.Add(comboEmpY);
-            inputField.Controls.Add(comboEmpD);
-            inputField.Controls.Add(comboEmpM);
             inputField.Controls.Add(label8);
             inputField.Controls.Add(rbUndef);
             inputField.Controls.Add(rbFemale);
@@ -94,6 +93,16 @@
             inputField.TabStop = false;
             inputField.Text = "&Employee Info";
             // 
+            // textEmpDob
+            // 
+            textEmpDob.Format = DateTimePickerFormat.Short;
+            textEmpDob.Location = new Point(106, 134);
+            textEmpDob.Name = "textEmpDob";
+            textEmpDob.RightToLeft = RightToLeft.No;
+            textEmpDob.Size = new Size(248, 23);
+            textEmpDob.TabIndex = 14;
+            textEmpDob.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -109,33 +118,6 @@
             textEmpAge.Name = "textEmpAge";
             textEmpAge.Size = new Size(51, 23);
             textEmpAge.TabIndex = 25;
-            // 
-            // comboEmpY
-            // 
-            comboEmpY.FormattingEnabled = true;
-            comboEmpY.Location = new Point(264, 134);
-            comboEmpY.Name = "comboEmpY";
-            comboEmpY.RightToLeft = RightToLeft.Yes;
-            comboEmpY.Size = new Size(90, 23);
-            comboEmpY.TabIndex = 24;
-            // 
-            // comboEmpD
-            // 
-            comboEmpD.FormattingEnabled = true;
-            comboEmpD.Location = new Point(202, 134);
-            comboEmpD.Name = "comboEmpD";
-            comboEmpD.RightToLeft = RightToLeft.Yes;
-            comboEmpD.Size = new Size(56, 23);
-            comboEmpD.TabIndex = 23;
-            // 
-            // comboEmpM
-            // 
-            comboEmpM.FormattingEnabled = true;
-            comboEmpM.Location = new Point(106, 134);
-            comboEmpM.Name = "comboEmpM";
-            comboEmpM.RightToLeft = RightToLeft.Yes;
-            comboEmpM.Size = new Size(90, 23);
-            comboEmpM.TabIndex = 22;
             // 
             // label8
             // 
@@ -228,6 +210,7 @@
             empDepart.Name = "empDepart";
             empDepart.Size = new Size(248, 23);
             empDepart.TabIndex = 9;
+            empDepart.SelectedIndexChanged += empDepart_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -271,6 +254,7 @@
             // groupBox1
             // 
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            groupBox1.Controls.Add(clearBtn);
             groupBox1.Controls.Add(editBtn);
             groupBox1.Controls.Add(deleteBtn);
             groupBox1.Controls.Add(SaveBtn);
@@ -282,6 +266,16 @@
             groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "&Actions";
+            // 
+            // clearBtn
+            // 
+            clearBtn.Location = new Point(6, 134);
+            clearBtn.Name = "clearBtn";
+            clearBtn.Size = new Size(138, 23);
+            clearBtn.TabIndex = 4;
+            clearBtn.Text = "Clear";
+            clearBtn.UseVisualStyleBackColor = true;
+            clearBtn.Click += clearBtn_Click;
             // 
             // editBtn
             // 
@@ -358,11 +352,32 @@
             label6.TabIndex = 10;
             label6.Text = "Position";
             // 
+            // grd_dep_list
+            // 
+            grd_dep_list.AllowUserToAddRows = false;
+            grd_dep_list.AllowUserToDeleteRows = false;
+            grd_dep_list.AllowUserToResizeColumns = false;
+            grd_dep_list.AllowUserToResizeRows = false;
+            grd_dep_list.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grd_dep_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grd_dep_list.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grd_dep_list.Location = new Point(12, 229);
+            grd_dep_list.Name = "grd_dep_list";
+            grd_dep_list.ReadOnly = true;
+            grd_dep_list.RightToLeft = RightToLeft.No;
+            grd_dep_list.RowHeadersVisible = false;
+            grd_dep_list.RowTemplate.Height = 25;
+            grd_dep_list.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grd_dep_list.Size = new Size(100, 320);
+            grd_dep_list.TabIndex = 8;
+            grd_dep_list.Visible = false;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(906, 561);
+            Controls.Add(grd_dep_list);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label3);
@@ -378,6 +393,7 @@
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)grd_dep_list).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -406,10 +422,10 @@
         private Label label7;
         private CheckBox empStatus;
         private Label label8;
-        private ComboBox comboEmpY;
-        private ComboBox comboEmpD;
-        private ComboBox comboEmpM;
         private Label label9;
         private TextBox textEmpAge;
+        private DateTimePicker textEmpDob;
+        private DataGridView grd_dep_list;
+        private Button clearBtn;
     }
 }

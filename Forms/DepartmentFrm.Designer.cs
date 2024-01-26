@@ -31,7 +31,7 @@
             grd_dep = new DataGridView();
             inputField = new GroupBox();
             label7 = new Label();
-            checkBox1 = new CheckBox();
+            depStatus = new CheckBox();
             textDepName = new TextBox();
             label2 = new Label();
             label1 = new Label();
@@ -118,7 +118,7 @@
             // inputField
             // 
             inputField.Controls.Add(label7);
-            inputField.Controls.Add(checkBox1);
+            inputField.Controls.Add(depStatus);
             inputField.Controls.Add(textDepName);
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
@@ -139,18 +139,18 @@
             label7.TabIndex = 15;
             label7.Text = "Status";
             // 
-            // checkBox1
+            // depStatus
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Checked = true;
-            checkBox1.CheckState = CheckState.Checked;
-            checkBox1.Location = new Point(113, 82);
-            checkBox1.Name = "checkBox1";
-            checkBox1.RightToLeft = RightToLeft.No;
-            checkBox1.Size = new Size(59, 19);
-            checkBox1.TabIndex = 14;
-            checkBox1.Text = "Active";
-            checkBox1.UseVisualStyleBackColor = true;
+            depStatus.AutoSize = true;
+            depStatus.Checked = true;
+            depStatus.CheckState = CheckState.Checked;
+            depStatus.Location = new Point(113, 82);
+            depStatus.Name = "depStatus";
+            depStatus.RightToLeft = RightToLeft.No;
+            depStatus.Size = new Size(59, 19);
+            depStatus.TabIndex = 14;
+            depStatus.Text = "Active";
+            depStatus.UseVisualStyleBackColor = true;
             // 
             // textDepName
             // 
@@ -219,6 +219,6 @@
         private Label label1;
         private TextBox textDepId;
         private Label label7;
-        private CheckBox checkBox1;
+        private CheckBox depStatus;
     }
 }
