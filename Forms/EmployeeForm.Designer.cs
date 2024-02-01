@@ -55,11 +55,13 @@
             empPos = new ComboBox();
             label6 = new Label();
             grd_dep_list = new DataGridView();
+            grd_pos_list = new DataGridView();
             inputField.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_emp).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd_dep_list).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)grd_pos_list).BeginInit();
             SuspendLayout();
             // 
             // SaveBtn
@@ -372,11 +374,32 @@
             grd_dep_list.TabIndex = 8;
             grd_dep_list.Visible = false;
             // 
+            // grd_pos_list
+            // 
+            grd_pos_list.AllowUserToAddRows = false;
+            grd_pos_list.AllowUserToDeleteRows = false;
+            grd_pos_list.AllowUserToResizeColumns = false;
+            grd_pos_list.AllowUserToResizeRows = false;
+            grd_pos_list.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grd_pos_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grd_pos_list.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grd_pos_list.Location = new Point(794, 229);
+            grd_pos_list.Name = "grd_pos_list";
+            grd_pos_list.ReadOnly = true;
+            grd_pos_list.RightToLeft = RightToLeft.No;
+            grd_pos_list.RowHeadersVisible = false;
+            grd_pos_list.RowTemplate.Height = 25;
+            grd_pos_list.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            grd_pos_list.Size = new Size(100, 320);
+            grd_pos_list.TabIndex = 9;
+            grd_pos_list.Visible = false;
+            // 
             // EmployeeForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(906, 561);
+            Controls.Add(grd_pos_list);
             Controls.Add(grd_dep_list);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -394,6 +417,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)grd_dep_list).EndInit();
+            ((System.ComponentModel.ISupportInitialize)grd_pos_list).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -427,5 +451,6 @@
         private DateTimePicker textEmpDob;
         private DataGridView grd_dep_list;
         private Button clearBtn;
+        private DataGridView grd_pos_list;
     }
 }

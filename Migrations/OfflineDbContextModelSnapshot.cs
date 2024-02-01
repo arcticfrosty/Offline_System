@@ -38,7 +38,7 @@ namespace Offline_System.Migrations
 
                     b.HasKey("DepartID");
 
-                    b.ToTable("C_Departments");
+                    b.ToTable("OS_Departments");
                 });
 
             modelBuilder.Entity("Offline_System.Models.Data.Employees", b =>
@@ -72,7 +72,7 @@ namespace Offline_System.Migrations
 
                     b.HasKey("EmployeesID");
 
-                    b.ToTable("C_Employees");
+                    b.ToTable("OS_Employees");
                 });
 
             modelBuilder.Entity("Offline_System.Models.Data.Positions", b =>
@@ -91,7 +91,7 @@ namespace Offline_System.Migrations
 
                     b.HasKey("PositionID");
 
-                    b.ToTable("C_Positions");
+                    b.ToTable("OS_Positions");
                 });
 #pragma warning restore 612, 618
         }

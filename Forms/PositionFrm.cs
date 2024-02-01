@@ -1,6 +1,5 @@
 ﻿using Offline_System.Models.Data;
 using System.Diagnostics;
-using System.Net.NetworkInformation;
 using System.Text.RegularExpressions;
 
 namespace Offline_System {
@@ -15,7 +14,7 @@ namespace Offline_System {
 
         protected void getPositions() {
             var _context = new OfflineDbContext();
-            var posList = _context.C_Positions.ToList();
+            var posList = _context.OS_Positions.ToList();
             grd_pos.DataSource = posList;
 
             grd_pos.Columns[0].HeaderText = "ID";
@@ -26,7 +25,7 @@ namespace Offline_System {
             }
 
             comboPosDep.Items.Clear();
-            var depList = _context.C_Departments.ToList();
+            var depList = _context.OS_Departments.ToList();
             grd_dep_list.DataSource = depList;
             foreach (DataGridViewRow rows in grd_dep_list.Rows) {
                 if (!rows.IsNewRow) {
@@ -56,7 +55,7 @@ namespace Offline_System {
                                 PositionName = posName,
                                 PositionDepart = comboPosDep.Text,
                             };
-                            _context.C_Positions.Add(positions);
+                            _context.OS_Positions.Add(positions);
                             _context.SaveChanges();
 
                             textPosId.Text = null;
@@ -102,7 +101,7 @@ namespace Offline_System {
                             PositionName = posName,
                             PositionDepart = comboPosDep.Text,
                         };
-                        _context.C_Positions.Remove(positions);
+                        _context.OS_Positions.Remove(positions);
                         _context.SaveChanges();
 
                         textPosId.Text = null;

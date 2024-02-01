@@ -20,7 +20,7 @@ namespace Offline_System {
 
         protected void getDepartments() {
             var _context = new OfflineDbContext();
-            var depList = _context.C_Departments.ToList();
+            var depList = _context.OS_Departments.ToList();
             grd_dep.DataSource = depList;
         }
 
@@ -81,7 +81,7 @@ namespace Offline_System {
                                     DepartName = deparmentName,
                                     DepartStatus = depStatus.Checked,
                                 };
-                                _context.C_Departments.Update(department);
+                                _context.OS_Departments.Update(department);
                                 _context.SaveChanges();
 
                                 textDepId.Text = null;
@@ -126,7 +126,7 @@ namespace Offline_System {
                             DepartName = departmentName,
                             DepartStatus = depStatus.Checked,
                         };
-                        _context.C_Departments.Remove(deparment);
+                        _context.OS_Departments.Remove(deparment);
                         _context.SaveChanges();
 
                         textDepId.Text = null;

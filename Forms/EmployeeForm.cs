@@ -16,7 +16,7 @@ namespace Offline_System {
 
         protected void getEmployees() {
             var _context = new OfflineDbContext();
-            var empList = _context.C_Employees.ToList();
+            var empList = _context.OS_Employees.ToList();
             grd_emp.DataSource = empList;
 
             grd_emp.Columns[0].HeaderText = "ID";
@@ -32,7 +32,7 @@ namespace Offline_System {
             }
 
             empDepart.Items.Clear();
-            var depList = _context.C_Departments.ToList();
+            var depList = _context.OS_Departments.ToList();
             grd_dep_list.DataSource = depList;
             foreach (DataGridViewRow rows in grd_dep_list.Rows) {
                 if (!rows.IsNewRow) {
@@ -42,6 +42,16 @@ namespace Offline_System {
                         if (depName != null) {
                             empDepart.Items.Add(depName.ToString());
                         }
+                    }
+                }
+            }
+            var posList = _context.OS_Positions.ToList();
+            grd_pos_list.DataSource = posList;
+            foreach (DataGridViewRow rows in grd_pos_list.Rows) {
+                if (!rows.IsNewRow) {
+                    object posName = rows.Cells[1].Value;
+                    if (posName != null) {
+                        empPos.Items.Add(posName.ToString());
                     }
                 }
             }
@@ -84,7 +94,7 @@ namespace Offline_System {
                                     EmployeeDeparment = empDepart.Text,
                                     EmployeeStatus = empStatus.Checked,
                                 };
-                                _context.C_Employees.Add(employee);
+                                _context.OS_Employees.Add(employee);
                                 _context.SaveChanges();
 
                                 textEmpId.Text = null;
@@ -136,7 +146,7 @@ namespace Offline_System {
                                         EmployeeDeparment = empDepart.Text,
                                         EmployeeStatus = empStatus.Checked,
                                     };
-                                    _context.C_Employees.Update(employee);
+                                    _context.OS_Employees.Update(employee);
                                     _context.SaveChanges();
 
                                     textEmpId.Text = null;
@@ -190,7 +200,7 @@ namespace Offline_System {
                             EmployeeDeparment = empDepart.Text,
                             EmployeeStatus = empStatus.Checked,
                         };
-                        _context.C_Employees.Remove(employee);
+                        _context.OS_Employees.Remove(employee);
                         _context.SaveChanges();
 
                         textEmpId.Text = null;
@@ -248,7 +258,7 @@ namespace Offline_System {
         }
 
         private void empDepart_SelectedIndexChanged(object sender, EventArgs e) {
-            MessageBox.Show("Helloworld");
+
         }
     }
 }
