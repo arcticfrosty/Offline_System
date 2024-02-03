@@ -139,7 +139,7 @@ namespace Offline_System {
                         long elapsedTime = stopwatch.ElapsedMilliseconds;
                         MessageBox.Show("Successfully deleted.\nElapsed: " + elapsedTime + "ms", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     } else {
-                        MessageBox.Show("Department name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select one from field below!" , "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 } catch (Exception) {
                     MessageBox.Show("Not found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

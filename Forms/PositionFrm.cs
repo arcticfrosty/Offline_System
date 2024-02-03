@@ -80,7 +80,42 @@ namespace Offline_System {
         }
 
         private void editPosBtn_Click(object sender, EventArgs e) {
+            var message = MessageBox.Show("Confirm update?" , "Update" , MessageBoxButtons.YesNo , MessageBoxIcon.Question);
 
+            if (message == DialogResult.Yes) {
+                try {
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+
+                    var _context = new OfflineDbContext();
+                    var posId = textPosId.Text;
+                    var posName = textPosName.Text;
+
+                    if (!string.IsNullOrEmpty(posName)) {
+                        var positions = new Positions() {
+                            PositionID = Convert.ToInt32(posId) ,
+                            PositionName = posName ,
+                            PositionDepart = comboPosDep.Text ,
+                        };
+                        _context.OS_Positions.Update(positions);
+                        _context.SaveChanges();
+
+                        textPosId.Text = null;
+                        textPosName.Text = null;
+                        comboPosDep.Text = null;
+
+                        getPositions();
+
+                        stopwatch.Stop();
+                        long elapsedTime = stopwatch.ElapsedMilliseconds;
+                        MessageBox.Show("Successfully deleted.\nElapsed: " + elapsedTime + "ms" , "Information" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+                    } else {
+                        MessageBox.Show("Please select one from field below!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                    }
+                } catch (Exception) {
+                    MessageBox.Show("Not found!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void deletePosBtn_Click(object sender, EventArgs e) {

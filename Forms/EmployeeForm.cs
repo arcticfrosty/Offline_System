@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Offline_System.Models.Data;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
@@ -9,8 +10,7 @@ namespace Offline_System {
             InitializeComponent();
         }
 
-        private void MainForm_Load(object sender, EventArgs e) {
-
+        private void MainForm_Load(object sender , EventArgs e) {
             getEmployees();
         }
 
@@ -45,6 +45,7 @@ namespace Offline_System {
                     }
                 }
             }
+            /*
             var posList = _context.OS_Positions.ToList();
             grd_pos_list.DataSource = posList;
             foreach (DataGridViewRow rows in grd_pos_list.Rows) {
@@ -55,6 +56,18 @@ namespace Offline_System {
                     }
                 }
             }
+            */
+        }
+
+        protected void clearFrm() {
+            textEmpId.Text = null;
+            textEmpName.Text = null;
+            rbUndef.Checked = true;
+            textEmpAge.Text = null;
+            textEmpDob.Value = DateTime.Parse("2000-01-01");
+            empDepart.Text = null;
+            empPos.Text = null;
+            empStatus.Checked = true;
         }
 
         protected string getGender() {
@@ -73,8 +86,8 @@ namespace Offline_System {
             return false;
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e) {
-            var message = MessageBox.Show("Confirm save?", "Save", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        private void SaveBtn_Click(object sender , EventArgs e) {
+            var message = MessageBox.Show("Confirm save?" , "Save" , MessageBoxButtons.YesNo , MessageBoxIcon.Question);
 
             if (message == DialogResult.Yes) {
                 try {
@@ -83,47 +96,43 @@ namespace Offline_System {
                     var _context = new OfflineDbContext();
                     var employeeName = textEmpName.Text;
                     if (!string.IsNullOrEmpty(employeeName)) {
-                        if (Regex.IsMatch(employeeName, @"^[a-zA-Z\s]+$")) {
+                        if (Regex.IsMatch(employeeName , @"^[a-zA-Z\s]+$")) {
                             if (textEmpAge.Text != null || empPos.Text != null || empDepart.Text != null) {
                                 var employee = new Employees() {
-                                    EmployeesName = employeeName,
-                                    EmployeeGender = getGender(),
-                                    EmployeeAge = Convert.ToInt32(textEmpAge.Text),
-                                    EmployeeDoB = textEmpDob.Value.Date,
-                                    EmployeePosition = empPos.Text,
-                                    EmployeeDeparment = empDepart.Text,
-                                    EmployeeStatus = empStatus.Checked,
+                                    EmployeesName = employeeName ,
+                                    EmployeeGender = getGender() ,
+                                    EmployeeAge = Convert.ToInt32(textEmpAge.Text) ,
+                                    EmployeeDoB = textEmpDob.Value.Date ,
+                                    EmployeePosition = empPos.Text ,
+                                    EmployeeDeparment = empDepart.Text ,
+                                    EmployeeStatus = empStatus.Checked ,
                                 };
                                 _context.OS_Employees.Add(employee);
                                 _context.SaveChanges();
 
-                                textEmpId.Text = null;
-                                textEmpName.Text = null;
-                                textEmpAge.Text = null;
-                                textEmpDob.Value = DateTime.Parse("2000-01-01");
-
                                 getEmployees();
+                                clearFrm();
 
                                 stopwatch.Stop();
                                 long elapsedTime = stopwatch.ElapsedMilliseconds;
-                                MessageBox.Show("Successfully saved.\nElapsed: " + elapsedTime + "ms", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Successfully saved.\nElapsed: " + elapsedTime + "ms" , "Information" , MessageBoxButtons.OK , MessageBoxIcon.Information);
                             } else {
-                                MessageBox.Show("Please fill in all of the required information!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Please fill in all of the required information!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                             }
                         } else {
-                            MessageBox.Show("Name contain letters only!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Name contain letters only!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                         }
                     } else {
-                        MessageBox.Show("Name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Name field is empty!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                     }
                 } catch (Exception ex) {
-                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString() , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void editBtn_Click(object sender, EventArgs e) {
-            var message = MessageBox.Show("Confirm update?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        private void editBtn_Click(object sender , EventArgs e) {
+            var message = MessageBox.Show("Confirm update?" , "Update" , MessageBoxButtons.YesNo , MessageBoxIcon.Question);
 
             if (message == DialogResult.Yes) {
                 try {
@@ -134,51 +143,47 @@ namespace Offline_System {
                     var employeeName = textEmpName.Text;
                     if (!string.IsNullOrEmpty(employeeName)) {
                         if (!string.IsNullOrEmpty(employeeId)) {
-                            if (Regex.IsMatch(employeeName, @"^[a-zA-Z\s]+$")) {
+                            if (Regex.IsMatch(employeeName , @"^[a-zA-Z\s]+$")) {
                                 if (!(string.IsNullOrEmpty(textEmpAge.Text) || string.IsNullOrEmpty(textEmpAge.Text) || string.IsNullOrEmpty(textEmpAge.Text))) {
                                     var employee = new Employees() {
-                                        EmployeesID = Convert.ToInt32(employeeId),
-                                        EmployeesName = employeeName,
-                                        EmployeeGender = getGender(),
-                                        EmployeeAge = Convert.ToInt32(textEmpAge.Text),
-                                        EmployeeDoB = textEmpDob.Value.Date,
-                                        EmployeePosition = empPos.Text,
-                                        EmployeeDeparment = empDepart.Text,
-                                        EmployeeStatus = empStatus.Checked,
+                                        EmployeesID = Convert.ToInt32(employeeId) ,
+                                        EmployeesName = employeeName ,
+                                        EmployeeGender = getGender() ,
+                                        EmployeeAge = Convert.ToInt32(textEmpAge.Text) ,
+                                        EmployeeDoB = textEmpDob.Value.Date ,
+                                        EmployeePosition = empPos.Text ,
+                                        EmployeeDeparment = empDepart.Text ,
+                                        EmployeeStatus = empStatus.Checked ,
                                     };
                                     _context.OS_Employees.Update(employee);
                                     _context.SaveChanges();
 
-                                    textEmpId.Text = null;
-                                    textEmpName.Text = null;
-                                    textEmpAge.Text = null;
-                                    textEmpDob.Value = DateTime.Parse("2000-01-01");
-
                                     getEmployees();
+                                    clearFrm();
 
                                     stopwatch.Stop();
                                     long elapsedTime = stopwatch.ElapsedMilliseconds;
-                                    MessageBox.Show("Successfully updated.\nElapsed: " + elapsedTime + "ms", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("Successfully updated.\nElapsed: " + elapsedTime + "ms" , "Information" , MessageBoxButtons.OK , MessageBoxIcon.Information);
                                 } else {
-                                    MessageBox.Show("Please fill in all of the required information!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Please fill in all of the required information!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                                 }
                             } else {
-                                MessageBox.Show("Name contain letters only!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Name contain letters only!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                             }
                         } else {
-                            MessageBox.Show("Please select one from field below!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Please select one from field below!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                         }
                     } else {
-                        MessageBox.Show("Name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select one from field below!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                     }
                 } catch (Exception ex) {
-                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString(), "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An Error Occurred: " + "\n" + ex.Message.ToString() , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e) {
-            var message = MessageBox.Show("Confirm deletion?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        private void deleteBtn_Click(object sender , EventArgs e) {
+            var message = MessageBox.Show("Confirm deletion?" , "Delete" , MessageBoxButtons.YesNo , MessageBoxIcon.Warning);
 
             if (message == DialogResult.Yes) {
                 try {
@@ -191,49 +196,38 @@ namespace Offline_System {
 
                     if (!string.IsNullOrEmpty(employeeName)) {
                         var employee = new Employees() {
-                            EmployeesID = Convert.ToInt32(employeeId),
-                            EmployeesName = employeeName,
-                            EmployeeGender = getGender(),
-                            EmployeeAge = Convert.ToInt32(textEmpAge.Text),
-                            EmployeeDoB = textEmpDob.Value.Date,
-                            EmployeePosition = empPos.Text,
-                            EmployeeDeparment = empDepart.Text,
-                            EmployeeStatus = empStatus.Checked,
+                            EmployeesID = Convert.ToInt32(employeeId) ,
+                            EmployeesName = employeeName ,
+                            EmployeeGender = getGender() ,
+                            EmployeeAge = Convert.ToInt32(textEmpAge.Text) ,
+                            EmployeeDoB = textEmpDob.Value.Date ,
+                            EmployeePosition = empPos.Text ,
+                            EmployeeDeparment = empDepart.Text ,
+                            EmployeeStatus = empStatus.Checked ,
                         };
                         _context.OS_Employees.Remove(employee);
                         _context.SaveChanges();
 
-                        textEmpId.Text = null;
-                        textEmpName.Text = null;
-                        textEmpAge.Text = null;
-                        textEmpDob.Value = DateTime.Parse("2000-01-01");
-
                         getEmployees();
+                        clearFrm();
 
                         stopwatch.Stop();
                         long elapsedTime = stopwatch.ElapsedMilliseconds;
-                        MessageBox.Show("Successfully deleted.\nElapsed: " + elapsedTime + "ms", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Successfully deleted.\nElapsed: " + elapsedTime + "ms" , "Information" , MessageBoxButtons.OK , MessageBoxIcon.Information);
                     } else {
-                        MessageBox.Show("Name field is empty!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please select one from field below!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                     }
                 } catch {
-                    MessageBox.Show("Not found!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Not found!" , "Error!" , MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void clearBtn_Click(object sender, EventArgs e) {
-            textEmpId.Text = null;
-            textEmpName.Text = null;
-            rbUndef.Checked = true;
-            textEmpAge.Text = null;
-            textEmpDob.Value = DateTime.Parse("2000-01-01");
-            empDepart.Text = null;
-            empPos.Text = null;
-            empStatus.Checked = true;
+        private void clearBtn_Click(object sender , EventArgs e) {
+            clearFrm();
         }
 
-        private void grd_emp_CellDoubleClick(object sender, DataGridViewCellEventArgs e) {
+        private void grd_emp_CellDoubleClick(object sender , DataGridViewCellEventArgs e) {
             try {
                 textEmpId.Text = grd_emp.SelectedCells[0].Value.ToString();
                 textEmpName.Text = grd_emp.SelectedCells[1].Value.ToString();
@@ -257,8 +251,29 @@ namespace Offline_System {
             }
         }
 
-        private void empDepart_SelectedIndexChanged(object sender, EventArgs e) {
+        private void empDepart_SelectedIndexChanged(object sender , EventArgs e) {
+            var _context = new OfflineDbContext();
+            var posList = _context.OS_Positions.ToList();
+            grd_pos_list.DataSource = posList;
+            foreach (DataGridViewRow rows in grd_pos_list.Rows) {
+                if (!rows.IsNewRow) {
+                    object posName = rows.Cells[1].Value;
+                    if (posName != null) {
+                        empPos.Items.Add(posName.ToString());
+                    }
+                }
+            }
+        }
 
+        private void refBtn_Click(object sender , EventArgs e) {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            getEmployees();
+
+            stopwatch.Stop();
+            long elapsedTime = stopwatch.ElapsedMilliseconds;
+            MessageBox.Show("Successfully refreshed.\nTime elapsed: " + elapsedTime + "ms" , "Refresh" , MessageBoxButtons.OK , MessageBoxIcon.Information);
         }
     }
 }

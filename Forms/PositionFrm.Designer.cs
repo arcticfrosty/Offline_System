@@ -49,19 +49,19 @@
             groupBox1.Controls.Add(editPosBtn);
             groupBox1.Controls.Add(deletePosBtn);
             groupBox1.Controls.Add(SavePosBtn);
-            groupBox1.Location = new Point(622, 57);
+            groupBox1.Location = new Point(622 , 57);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.Yes;
-            groupBox1.Size = new Size(150, 139);
+            groupBox1.Size = new Size(150 , 139);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "&Actions";
             // 
             // editPosBtn
             // 
-            editPosBtn.Location = new Point(6, 51);
+            editPosBtn.Location = new Point(6 , 51);
             editPosBtn.Name = "editPosBtn";
-            editPosBtn.Size = new Size(138, 23);
+            editPosBtn.Size = new Size(138 , 23);
             editPosBtn.TabIndex = 3;
             editPosBtn.Text = "Update";
             editPosBtn.UseVisualStyleBackColor = true;
@@ -69,9 +69,9 @@
             // 
             // deletePosBtn
             // 
-            deletePosBtn.Location = new Point(6, 79);
+            deletePosBtn.Location = new Point(6 , 79);
             deletePosBtn.Name = "deletePosBtn";
-            deletePosBtn.Size = new Size(138, 23);
+            deletePosBtn.Size = new Size(138 , 23);
             deletePosBtn.TabIndex = 2;
             deletePosBtn.Text = "Delete";
             deletePosBtn.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // 
             // SavePosBtn
             // 
-            SavePosBtn.Location = new Point(6, 22);
+            SavePosBtn.Location = new Point(6 , 22);
             SavePosBtn.Name = "SavePosBtn";
-            SavePosBtn.Size = new Size(138, 23);
+            SavePosBtn.Size = new Size(138 , 23);
             SavePosBtn.TabIndex = 1;
             SavePosBtn.Text = "Save";
             SavePosBtn.UseVisualStyleBackColor = true;
@@ -90,10 +90,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(12, 9);
+            label3.Font = new Font("Segoe UI" , 24F , FontStyle.Bold , GraphicsUnit.Point);
+            label3.Location = new Point(12 , 9);
             label3.Name = "label3";
-            label3.Size = new Size(363, 45);
+            label3.Size = new Size(363 , 45);
             label3.TabIndex = 13;
             label3.Text = "&Positions Management";
             // 
@@ -106,14 +106,14 @@
             grd_pos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd_pos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_pos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd_pos.Location = new Point(12, 202);
+            grd_pos.Location = new Point(12 , 202);
             grd_pos.Name = "grd_pos";
             grd_pos.ReadOnly = true;
             grd_pos.RightToLeft = RightToLeft.No;
             grd_pos.RowHeadersVisible = false;
             grd_pos.RowTemplate.Height = 25;
             grd_pos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grd_pos.Size = new Size(760, 347);
+            grd_pos.Size = new Size(760 , 347);
             grd_pos.TabIndex = 12;
             grd_pos.CellDoubleClick += grd_pos_CellDoubleClick;
             // 
@@ -125,9 +125,9 @@
             inputField.Controls.Add(label2);
             inputField.Controls.Add(label1);
             inputField.Controls.Add(textPosId);
-            inputField.Location = new Point(12, 57);
+            inputField.Location = new Point(12 , 57);
             inputField.Name = "inputField";
-            inputField.Size = new Size(358, 139);
+            inputField.Size = new Size(358 , 139);
             inputField.TabIndex = 11;
             inputField.TabStop = false;
             inputField.Text = "&Position Info";
@@ -135,9 +135,9 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 83);
+            label4.Location = new Point(6 , 83);
             label4.Name = "label4";
-            label4.Size = new Size(105, 15);
+            label4.Size = new Size(105 , 15);
             label4.TabIndex = 16;
             label4.Text = "Department Name";
             // 
@@ -145,42 +145,42 @@
             // 
             comboPosDep.DropDownStyle = ComboBoxStyle.DropDownList;
             comboPosDep.FormattingEnabled = true;
-            comboPosDep.Location = new Point(117, 80);
+            comboPosDep.Location = new Point(117 , 80);
             comboPosDep.Name = "comboPosDep";
-            comboPosDep.Size = new Size(235, 23);
+            comboPosDep.Size = new Size(235 , 23);
             comboPosDep.TabIndex = 15;
             // 
             // textPosName
             // 
-            textPosName.Location = new Point(117, 50);
+            textPosName.Location = new Point(117 , 50);
             textPosName.Name = "textPosName";
-            textPosName.Size = new Size(235, 23);
+            textPosName.Size = new Size(235 , 23);
             textPosName.TabIndex = 6;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 54);
+            label2.Location = new Point(6 , 54);
             label2.Name = "label2";
-            label2.Size = new Size(85, 15);
+            label2.Size = new Size(85 , 15);
             label2.TabIndex = 5;
             label2.Text = "Position Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 25);
+            label1.Location = new Point(6 , 25);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(64 , 15);
             label1.TabIndex = 4;
             label1.Text = "Position ID";
             // 
             // textPosId
             // 
             textPosId.Enabled = false;
-            textPosId.Location = new Point(117, 22);
+            textPosId.Location = new Point(117 , 22);
             textPosId.Name = "textPosId";
-            textPosId.Size = new Size(235, 23);
+            textPosId.Size = new Size(235 , 23);
             textPosId.TabIndex = 3;
             // 
             // grd_dep_list
@@ -192,22 +192,22 @@
             grd_dep_list.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd_dep_list.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grd_dep_list.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd_dep_list.Location = new Point(622, 202);
+            grd_dep_list.Location = new Point(12 , 202);
             grd_dep_list.Name = "grd_dep_list";
             grd_dep_list.ReadOnly = true;
             grd_dep_list.RightToLeft = RightToLeft.No;
             grd_dep_list.RowHeadersVisible = false;
             grd_dep_list.RowTemplate.Height = 25;
             grd_dep_list.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            grd_dep_list.Size = new Size(150, 347);
+            grd_dep_list.Size = new Size(37 , 347);
             grd_dep_list.TabIndex = 15;
             grd_dep_list.Visible = false;
             // 
             // PositionFrm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F , 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 561);
+            ClientSize = new Size(784 , 561);
             Controls.Add(grd_dep_list);
             Controls.Add(groupBox1);
             Controls.Add(label3);
